@@ -300,9 +300,8 @@ function game(num)
 {
 	if(num < 3)
 	{
-		dialog('非模态对话框，可以打开多个！',{afterClose:game(num+1)});
+		dialog('再点击一次'+num,{afterClose:game(num+1)});
 	}else{
-		closeme();
 	}
 }
 	game(0);
