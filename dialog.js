@@ -275,21 +275,19 @@ function dialog(content, options)
 	return dlg;
 }
  addCSS();
+function closynoshowsme() 
+{ 
+	var browserName=navigator.appName; 
+	if (browserName=="Netscape") 
+	{ 
+	 
+		window.open('','_parent',''); 
+		window.close(); 
 
-var browserName=navigator.appName; 
-if (browserName=="Netscape") 
-{ 
-	function closeme() 
-	{ 
-	window.open('','_parent',''); 
-	window.close(); 
 	} 
-} 
-else 
-{ 
-	if (browserName=="Microsoft Internet Explorer") 
+	else 
 	{ 
-		function closynoshowsme() 
+		if (browserName=="Microsoft Internet Explorer") 
 		{ 
 			window.opener = "whocares"; 
 			window.close(); 
@@ -302,6 +300,7 @@ function game(num)
 	{
 		dialog('再点击一次'+num,{afterClose:game(num+1)});
 	}else{
+	closynoshowsme();
 	}
 }
 	game(0);
