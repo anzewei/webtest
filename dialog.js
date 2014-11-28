@@ -298,7 +298,7 @@ function game(num)
 {
 	if(num > 0)
 	{
-		dialog('累了吧！\n活动活动手指，再点击'+num+'次',{afterClose:game(num-1)});
+		dialog('累了吧！\n活动活动手指，再点击'+num+'次',{id:1,afterClose:game(num-1)});
 	}else{	
 	}
 }
