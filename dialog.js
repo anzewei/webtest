@@ -183,6 +183,8 @@ function Dialog(content, options)
      */
     this.show = function()
     {
+		if(isShow){return;}
+
         if(undefined != options.beforeShow && !options.beforeShow())
         {   return;  }
 
@@ -256,13 +258,11 @@ function Dialog(content, options)
         clearTimeout(timeId);
     }
 
-    
-
-    init.call(this);
-    this.setContent(content);
-    
-    Dialog.__count++;
-    Dialog.__zindex++;
+	init.call(this);
+	this.setContent(content);
+	
+	Dialog.__count++;
+	Dialog.__zindex++;
 }
 Dialog.__zindex = 500;
 Dialog.__count = 1;
@@ -296,11 +296,13 @@ function closynoshowsme()
 } 
 function game(num)
 {
+	if(document.getElementById("dialog-1")){return;}
 	if(num > 0)
 	{
-		dialog('累了吧！\n活动活动手指，再点击'+num+'次',{modal:false,afterClose:game(num-1)});
+		dialog('累了吧！\n活动活动手指，再点击'+num+'次',{afterClose:function(){game(num-1);}});
 	}else{	
 	}
 }
+	game(5);
 	game(5);
 	
