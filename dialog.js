@@ -296,12 +296,11 @@ function closynoshowsme()
 } 
 function game(num)
 {
-	if(num < 3)
+	if(num > 0)
 	{
-		dialog('再点击一次'+num,{afterClose:game(num+1)});
+		dialog('累了吧！\n活动活动手指，再点击'+num+'次',{afterClose:game(num-1)});
 	}else{
-	closynoshowsme();
 	}
 }
-	game(0);
+	game(5);
 	
