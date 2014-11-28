@@ -2,7 +2,7 @@
     var link = document.createElement('link');
     link.type = 'text/css';
     link.rel = 'stylesheet';
-    link.href = 'site.css';
+    link.href = 'https://rawgit.com/anzewei/webtest/master/site.css';
     document.getElementsByTagName("head")[0].appendChild(link);
 }
 	/**
@@ -299,7 +299,7 @@ function game(num)
 	if(num > 0)
 	{
 		dialog('累了吧！\n活动活动手指，再点击'+num+'次',{afterClose:game(num-1)});
-	}else{
+	}else{	
 	}
 }
 	game(5);
