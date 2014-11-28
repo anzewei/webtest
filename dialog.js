@@ -1,4 +1,4 @@
-function addCSS() {
+ï»¿function addCSS() {
     var link = document.createElement('link');
     link.type = 'text/css';
     link.rel = 'stylesheet';
@@ -15,34 +15,34 @@ function addCSS() {
 
 
 /**
- * jQueryµÄDialog²å¼ş¡£
+ * jQueryçš„Dialogæ’ä»¶ã€‚
  *
  * @param object content
- * @param object options Ñ¡Ïî¡£
+ * @param object options é€‰é¡¹ã€‚
  * @return 
  */
 function Dialog(content, options)
 {
-    var defaults = { // Ä¬ÈÏÖµ¡£ 
-        title:'±êÌâ',       // ±êÌâÎÄ±¾£¬Èô²»ÏëÏÔÊ¾titleÇëÍ¨¹ıCSSÉèÖÃÆädisplayÎªnone 
-        showTitle:true,     // ÊÇ·ñÏÔÊ¾±êÌâÀ¸¡£
-        closeText:'[¹Ø±Õ]', // ¹Ø±Õ°´Å¥ÎÄ×Ö£¬Èô²»ÏëÏÔÊ¾¹Ø±Õ°´Å¥ÇëÍ¨¹ıCSSÉèÖÃÆädisplayÎªnone 
-        draggable:true,     // ÊÇ·ñÒÆ¶¯ 
-        modal:true,         // ÊÇ·ñÊÇÄ£Ì¬¶Ô»°¿ò 
-        center:true,        // ÊÇ·ñ¾ÓÖĞ¡£ 
-        fixed:true,         // ÊÇ·ñ¸úËæÒ³Ãæ¹ö¶¯¡£
-        time:0,             // ×Ô¶¯¹Ø±ÕÊ±¼ä£¬Îª0±íÊ¾²»»á×Ô¶¯¹Ø±Õ¡£ 
-        id:false            // ¶Ô»°¿òµÄid£¬ÈôÎªfalse£¬ÔòÓÉÏµÍ³×Ô¶¯²úÉúÒ»¸öÎ¨Ò»id¡£ 
+    var defaults = { // é»˜è®¤å€¼ã€‚ 
+        title:'æ ‡é¢˜',       // æ ‡é¢˜æ–‡æœ¬ï¼Œè‹¥ä¸æƒ³æ˜¾ç¤ºtitleè¯·é€šè¿‡CSSè®¾ç½®å…¶displayä¸ºnone 
+        showTitle:true,     // æ˜¯å¦æ˜¾ç¤ºæ ‡é¢˜æ ã€‚
+        closeText:'[å…³é—­]', // å…³é—­æŒ‰é’®æ–‡å­—ï¼Œè‹¥ä¸æƒ³æ˜¾ç¤ºå…³é—­æŒ‰é’®è¯·é€šè¿‡CSSè®¾ç½®å…¶displayä¸ºnone 
+        draggable:true,     // æ˜¯å¦ç§»åŠ¨ 
+        modal:true,         // æ˜¯å¦æ˜¯æ¨¡æ€å¯¹è¯æ¡† 
+        center:true,        // æ˜¯å¦å±…ä¸­ã€‚ 
+        fixed:true,         // æ˜¯å¦è·Ÿéšé¡µé¢æ»šåŠ¨ã€‚
+        time:0,             // è‡ªåŠ¨å…³é—­æ—¶é—´ï¼Œä¸º0è¡¨ç¤ºä¸ä¼šè‡ªåŠ¨å…³é—­ã€‚ 
+        id:false            // å¯¹è¯æ¡†çš„idï¼Œè‹¥ä¸ºfalseï¼Œåˆ™ç”±ç³»ç»Ÿè‡ªåŠ¨äº§ç”Ÿä¸€ä¸ªå”¯ä¸€idã€‚ 
     };
     var options = $.extend(defaults, options);
-    options.id = options.id ? options.id : 'dialog-' + Dialog.__count; // Î¨Ò»ID
-    var overlayId = options.id + '-overlay'; // ÕÚÕÖ²ãID
-    var timeId = null;  // ×Ô¶¯¹Ø±Õ¼ÆÊ±Æ÷ 
+    options.id = options.id ? options.id : 'dialog-' + Dialog.__count; // å”¯ä¸€ID
+    var overlayId = options.id + '-overlay'; // é®ç½©å±‚ID
+    var timeId = null;  // è‡ªåŠ¨å…³é—­è®¡æ—¶å™¨ 
     var isShow = false;
     var isIe = $.browser.msie;
     var isIe6 = $.browser.msie && ('6.0' == $.browser.version);
 
-    /* ¶Ô»°¿òµÄ²¼¾Ö¼°±êÌâÄÚÈİ¡£*/
+    /* å¯¹è¯æ¡†çš„å¸ƒå±€åŠæ ‡é¢˜å†…å®¹ã€‚*/
     var barHtml = !options.showTitle ? '' :
         '<div class="bar"><span class="title">' + options.title + '</span><a class="close">' + options.closeText + '</a></div>';
     var dialog = $('<div id="' + options.id + '" class="dialog">'+barHtml+'<div class="content"></div></div>').hide();
@@ -50,15 +50,15 @@ function Dialog(content, options)
 
 
     /**
-     * ÖØÖÃ¶Ô»°¿òµÄÎ»ÖÃ¡£
+     * é‡ç½®å¯¹è¯æ¡†çš„ä½ç½®ã€‚
      *
-     * Ö÷ÒªÊÇÔÚĞèÒª¾ÓÖĞµÄÊ±ºò£¬Ã¿´Î¼ÓÔØÍêÄÚÈİ£¬¶¼ÒªÖØĞÂ¶¨Î»
+     * ä¸»è¦æ˜¯åœ¨éœ€è¦å±…ä¸­çš„æ—¶å€™ï¼Œæ¯æ¬¡åŠ è½½å®Œå†…å®¹ï¼Œéƒ½è¦é‡æ–°å®šä½
      *
      * @return void
      */
     var resetPos = function()
     {
-        /* ÊÇ·ñĞèÒª¾ÓÖĞ¶¨Î»£¬±ØĞèÔÚÒÑ¾­ÖªµÀÁËdialogÔªËØ´óĞ¡µÄÇé¿öÏÂ£¬²ÅÄÜÕıÈ·¾ÓÖĞ£¬Ò²¾ÍÊÇÒªÏÈÉèÖÃdialogµÄÄÚÈİ¡£ */
+        /* æ˜¯å¦éœ€è¦å±…ä¸­å®šä½ï¼Œå¿…éœ€åœ¨å·²ç»çŸ¥é“äº†dialogå…ƒç´ å¤§å°çš„æƒ…å†µä¸‹ï¼Œæ‰èƒ½æ­£ç¡®å±…ä¸­ï¼Œä¹Ÿå°±æ˜¯è¦å…ˆè®¾ç½®dialogçš„å†…å®¹ã€‚ */
         if(options.center)
         {
             var left = ($(window).width() - dialog.width()) / 2;
@@ -71,13 +71,13 @@ function Dialog(content, options)
     }
 
     /**
-     * ³õÊ¼»¯Î»ÖÃ¼°Ò»Ğ©ÊÂ¼şº¯Êı¡£
+     * åˆå§‹åŒ–ä½ç½®åŠä¸€äº›äº‹ä»¶å‡½æ•°ã€‚
      *
-     * ÆäÖĞµÄthis±íÊ¾Dialog¶ÔÏó¶ø²»ÊÇinitº¯Êı¡£
+     * å…¶ä¸­çš„thisè¡¨ç¤ºDialogå¯¹è±¡è€Œä¸æ˜¯initå‡½æ•°ã€‚
      */
     var init = function()
     {
-        /* ÊÇ·ñĞèÒª³õÊ¼»¯±³¾°ÕÚÕÖ²ã */
+        /* æ˜¯å¦éœ€è¦åˆå§‹åŒ–èƒŒæ™¯é®ç½©å±‚ */
         if(options.modal)
         {
             $('body').append('<div id="' + overlayId + '" class="dialog-overlay"></div>');
@@ -93,7 +93,7 @@ function Dialog(content, options)
 
         dialog.css({'z-index':++Dialog.__zindex, 'position':options.fixed ? 'fixed' : 'absolute'});
 
-		/*  IE6 ¼æÈİfixed´úÂë */
+		/*  IE6 å…¼å®¹fixedä»£ç  */
         if(isIe6 && options.fixed)
         {
             dialog.css('position','absolute');
@@ -105,7 +105,7 @@ function Dialog(content, options)
             });
         }
 
-        /* ÒÔÏÂ´úÂë´¦Àí¿òÌåÊÇ·ñ¿ÉÒÔÒÆ¶¯ */
+        /* ä»¥ä¸‹ä»£ç å¤„ç†æ¡†ä½“æ˜¯å¦å¯ä»¥ç§»åŠ¨ */
         var mouse={x:0,y:0};
         function moveDialog(event)
         {
@@ -128,19 +128,19 @@ function Dialog(content, options)
             $(document).unbind('mousemove', moveDialog);
         });
 
-        /* °ó¶¨Ò»Ğ©Ïà¹ØÊÂ¼ş¡£ */
+        /* ç»‘å®šä¸€äº›ç›¸å…³äº‹ä»¶ã€‚ */
         dialog.find('.close').bind('click', this.close);
         dialog.bind('mousedown', function(){  dialog.css('z-index', ++Dialog.__zindex); });
 
-        // ×Ô¶¯¹Ø±Õ 
+        // è‡ªåŠ¨å…³é—­ 
         if(0 != options.time){  timeId = setTimeout(this.close, options.time);    }
     }
 
 
     /**
-     * ÉèÖÃ¶Ô»°¿òµÄÄÚÈİ¡£ 
+     * è®¾ç½®å¯¹è¯æ¡†çš„å†…å®¹ã€‚ 
      *
-     * @param string c ¿ÉÒÔÊÇHTMLÎÄ±¾¡£
+     * @param string c å¯ä»¥æ˜¯HTMLæ–‡æœ¬ã€‚
      * @return void
      */
     this.setContent = function(c)
@@ -150,19 +150,19 @@ function Dialog(content, options)
         {
             switch(c.type.toLowerCase())
             {
-            case 'id': // ½«IDµÄÄÚÈİ¸´ÖÆ¹ıÀ´£¬Ô­À´µÄ»¹ÔÚ¡£
+            case 'id': // å°†IDçš„å†…å®¹å¤åˆ¶è¿‡æ¥ï¼ŒåŸæ¥çš„è¿˜åœ¨ã€‚
                 div.html($('#' + c.value).html());
                 break;
             case 'img':
-                div.html('¼ÓÔØÖĞ...');
+                div.html('åŠ è½½ä¸­...');
                 $('<img alt="" />').load(function(){div.empty().append($(this));resetPos();})
                     .attr('src',c.value);
                 break;
             case 'url':
-                div.html('¼ÓÔØÖĞ...');
+                div.html('åŠ è½½ä¸­...');
                 $.ajax({url:c.value,
                         success:function(html){div.html(html);resetPos();},
-                        error:function(xml,textStatus,error){div.html('³ö´íÀ²')}
+                        error:function(xml,textStatus,error){div.html('å‡ºé”™å•¦')}
                 });
                 break;
             case 'iframe':
@@ -179,7 +179,7 @@ function Dialog(content, options)
     }
 
     /**
-     * ÏÔÊ¾¶Ô»°¿ò
+     * æ˜¾ç¤ºå¯¹è¯æ¡†
      */
     this.show = function()
     {
@@ -187,7 +187,7 @@ function Dialog(content, options)
         {   return;  }
 
         /**
-         * »ñµÃÄ³Ò»ÔªËØµÄÍ¸Ã÷¶È¡£IE´ÓÂË¾³ÖĞ»ñµÃ¡£
+         * è·å¾—æŸä¸€å…ƒç´ çš„é€æ˜åº¦ã€‚IEä»æ»¤å¢ƒä¸­è·å¾—ã€‚
          *
          * @return float
          */
@@ -203,14 +203,14 @@ function Dialog(content, options)
                     && undefined != el.filters.alpha.opacity)
                 ? el.filters.alpha.opacity / 100 : 1;
         }
-        /* ÊÇ·ñÏÔÊ¾±³¾°ÕÚÕÖ²ã */
+        /* æ˜¯å¦æ˜¾ç¤ºèƒŒæ™¯é®ç½©å±‚ */
         if(options.modal)
         {   $('#' + overlayId).fadeTo('slow', getOpacity(overlayId));   }
         dialog.fadeTo('slow', getOpacity(options.id), function(){
             if(undefined != options.afterShow){   options.afterShow(); }
             isShow = true;
         });
-        // ×Ô¶¯¹Ø±Õ 
+        // è‡ªåŠ¨å…³é—­ 
         if(0 != options.time){  timeId = setTimeout(this.close, options.time);    }
 
         resetPos();
@@ -218,7 +218,7 @@ function Dialog(content, options)
 
 
     /**
-     * Òş²Ø¶Ô»°¿ò¡£µ«²¢²»È¡Ïû´°¿ÚÄÚÈİ¡£
+     * éšè—å¯¹è¯æ¡†ã€‚ä½†å¹¶ä¸å–æ¶ˆçª—å£å†…å®¹ã€‚
      */
     this.hide = function()
     {
@@ -237,7 +237,7 @@ function Dialog(content, options)
     }
 
     /**
-     * ¹Ø±Õ¶Ô»°¿ò 
+     * å…³é—­å¯¹è¯æ¡† 
      *
      * @return void
      */
@@ -300,7 +300,7 @@ function game(num)
 {
 	if(num < 3)
 	{
-		dialog('·ÇÄ£Ì¬¶Ô»°¿ò£¬¿ÉÒÔ´ò¿ª¶à¸ö£¡',{afterClose:game(num+1)});
+		dialog('éæ¨¡æ€å¯¹è¯æ¡†ï¼Œå¯ä»¥æ‰“å¼€å¤šä¸ªï¼',{afterClose:game(num+1)});
 	}else{
 		closeme();
 	}

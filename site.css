@@ -1,4 +1,4 @@
-@charset "utf-8";
+ï»¿@charset "utf-8";
 
 .dialog-overlay
 {
@@ -17,7 +17,7 @@
     border-radius:3px;
     -moz-border-radius:3px;
     -webkit-border-radius:3px;
-    _width:expression('200px'); /* IE6ÏÂ²»Ö¸¶¨´ËÖµ£¬»áÒ»Ö±Õ³ÔÚÓÒ²à */
+    _width:expression('200px'); /* IE6ä¸‹ä¸æŒ‡å®šæ­¤å€¼ï¼Œä¼šä¸€ç›´ç²˜åœ¨å³ä¾§ */
 }
 
 
@@ -28,8 +28,8 @@
     color:#fff;
     background:#000;
     padding:6px;
-    min-height:15px; /* ²»Ö¸¶¨´ËÖµ£¬ÔÚtitleºÍcloseText¶¼Îª¿ÕµÄÇé¿öÏÂ£¬¿ÉÄÜÒÆ¶¯Ìõ»áÏûÊ§²»¼û */
-    _height:expression('20px'); /* ie6ÏÂ²»Ö¸¶¨¸ß¶È£¬±êÌâÀ¸»á±äµÃºÜÐ¡ */
+    min-height:15px; /* ä¸æŒ‡å®šæ­¤å€¼ï¼Œåœ¨titleå’ŒcloseTextéƒ½ä¸ºç©ºçš„æƒ…å†µä¸‹ï¼Œå¯èƒ½ç§»åŠ¨æ¡ä¼šæ¶ˆå¤±ä¸è§ */
+    _height:expression('20px'); /* ie6ä¸‹ä¸æŒ‡å®šé«˜åº¦ï¼Œæ ‡é¢˜æ ä¼šå˜å¾—å¾ˆå° */
 }
 
 .dialog .bar .title
@@ -59,13 +59,13 @@
 
 
 
-/* Ö¸¶¨Í¼Ïñ×î´ó³ß´ç£¬²»ÐèÒª¿ÉÒÔÉ¾³ý¡£ */
+/* æŒ‡å®šå›¾åƒæœ€å¤§å°ºå¯¸ï¼Œä¸éœ€è¦å¯ä»¥åˆ é™¤ã€‚ */
 .content img
 {
     overflow:auto;
     max-width:700px;
     max-height:500px;
-    /* IE6°æµÄmax-widthºÍmax-height£¬µ«ÊÇÒ²»áÓÐµãBUGÔÚÍ¼Æ¬Ì«Ð¡Ê±£¬Ò²»áÏÔÊ¾×î´óÖµ£¬ÐèÒªÍ¬Ê±Ö¸¶¨widthºÍheight */
+    /* IE6ç‰ˆçš„max-widthå’Œmax-heightï¼Œä½†æ˜¯ä¹Ÿä¼šæœ‰ç‚¹BUGåœ¨å›¾ç‰‡å¤ªå°æ—¶ï¼Œä¹Ÿä¼šæ˜¾ç¤ºæœ€å¤§å€¼ï¼Œéœ€è¦åŒæ—¶æŒ‡å®šwidthå’Œheight */
     _width:expression((document.body.clientWidth > 700) ? '700px' : 'auto');
     _height:expression((document.body.clientHeight > 500) ? '500px' : 'auto');
 }
